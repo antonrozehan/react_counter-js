@@ -5,7 +5,18 @@ export const App = () => {
   const [count, setCount] = useState(0);
 
   const addOne = () => {
-    setCount(currentCount => currentCount + 1);
+    setCount(currentCount => {
+      // First, increment by 1
+      const newCount = currentCount + 1;
+
+      // Then check if the new count is divisible by 5
+      // If so, add an additional 100
+      if (newCount % 5 === 0) {
+        return newCount + 100;
+      }
+
+      return newCount;
+    });
   };
 
   const add100 = () => {
